@@ -13,7 +13,7 @@ const App = () => {
             <div className="app-container">
                 <nav className="navbar">
                     <ul>
-                        <li><Link to="/home">HOME</Link></li>
+                        <li><Link to="/blogs">HOME</Link></li>
                         <li><Link to="/blogs">BLOG</Link></li>
                         <li><Link to="/about">ABOUT</Link></li>
                     </ul>
