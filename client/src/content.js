@@ -26,7 +26,8 @@ const BlogContent = () => {
         : 'http://localhost:5000/api/v1/allblogs';
 
         console.log('Using API URL:', apiUrl);
-        const response = await axios.get(apiUrl);
+        const response = await axios.get(`https://yourcozycorner-backend.onrender.com/api/v1/singleblog/${id}`);
+
         console.log('API response:', response.data);
         console.log('Blog category:', response.data.blog.category);
 
