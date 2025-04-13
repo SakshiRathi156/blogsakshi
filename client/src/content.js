@@ -20,13 +20,13 @@ const BlogContent = () => {
         setLoading(true);
         console.log('Fetching blog details from API...');
 
-        // Use the full URL in development
-        const apiUrl = process.env.NODE_ENV === 'production'
-        ? 'https://sakshirathiblogs.onrender.com/api/v1/allblogs'
-        : 'http://localhost:5000/api/v1/allblogs';
+        // // Use the full URL in development
+        // const apiUrl = process.env.NODE_ENV === 'production'
+        // ? 'https://sakshirathiblogs.onrender.com/api/v1/allblogs'
+        // : 'http://localhost:5000/api/v1/allblogs';
 
         console.log('Using API URL:', apiUrl);
-        const response = await axios.get(`https://yourcozycorner-backend.onrender.com/api/v1/singleblog/${id}`);
+        const response = await axios.get(`https://sakshirathiblogs.onrender.com/api/v1/singleblog/${id}`);
 
         console.log('API response:', response.data);
         console.log('Blog category:', response.data.blog.category);
