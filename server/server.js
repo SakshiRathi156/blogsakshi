@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 app.use(routes);
 
 // Serve static assets in production
-app.get('/', (req, res) => {
+app.get('/api/v1/allblogs', (req, res) => {
     res.send('API is running');
 });
 
