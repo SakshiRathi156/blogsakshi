@@ -22,8 +22,8 @@ const BlogContent = () => {
 
         // Use the full URL in development
         const apiUrl = process.env.NODE_ENV === 'production'
-          ? `/api/v1/singleblog/${id}`
-          : `http://localhost:5000/api/v1/singleblog/${id}`;
+        ? 'https://sakshirathiblogs.onrender.com/api/v1/allblogs'
+        : 'http://localhost:5000/api/v1/allblogs';
 
         console.log('Using API URL:', apiUrl);
         const response = await axios.get(apiUrl);
