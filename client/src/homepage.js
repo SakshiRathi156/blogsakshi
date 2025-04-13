@@ -9,26 +9,58 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // const getFeaturedBlogs = async () => {
+  //   try {
+  //     setLoading(true);
+  //     console.log('Fetching blogs from API...');
+
+  //     // Use the full URL in development
+  //     // const apiUrl = process.env.NODE_ENV === 'production'
+  //     //   ? '/api/v1/allblogs'
+  //     //   : 'http://localhost:5000/api/v1/allblogs';
+  //     const apiUrl = process.env.NODE_ENV === 'production'
+  //  ? 'https://your-backend-url.com/api/v1/allblogs' // Use the actual URL of your deployed backend
+  //  : 'http://localhost:5000/api/v1/allblogs'; // Local development API URL
+
+
+  //     console.log('Using API URL:', apiUrl);
+  //     const { data } = await axios.get(apiUrl);
+  //     console.log('API response:', data);
+
+  //     if (data.blogs && data.blogs.length > 0) {
+  //       // Log the first blog to see its structure
+  //       console.log('First blog:', data.blogs[0]);
+  //       console.log('First blog category:', data.blogs[0].category);
+
+  //       // Get the first 3 blogs for the home page
+  //       setBlogs(data.blogs.slice(0, 3));
+  //       setError(null);
+  //     } else {
+  //       setError("No blogs found");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching blogs:", error);
+  //     console.error("Error details:", error.response ? error.response.data : 'No response data');
+  //     setError("An error occurred while fetching blogs. Please try again later.");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
   const getFeaturedBlogs = async () => {
     try {
       setLoading(true);
       console.log('Fetching blogs from API...');
-
-      // Use the full URL in development
+  
+      // Use the correct API URL depending on the environment
       const apiUrl = process.env.NODE_ENV === 'production'
-        ? '/api/v1/allblogs'
-        : 'http://localhost:5000/api/v1/allblogs';
-
+        ? 'https://sakshirathiblogs.onrender.com/api/v1/allblogs' // Replace with actual deployed backend URL
+        : 'http://localhost:5000/api/v1/allblogs'; // Local backend URL
+  
       console.log('Using API URL:', apiUrl);
       const { data } = await axios.get(apiUrl);
       console.log('API response:', data);
-
+  
       if (data.blogs && data.blogs.length > 0) {
-        // Log the first blog to see its structure
-        console.log('First blog:', data.blogs[0]);
-        console.log('First blog category:', data.blogs[0].category);
-
-        // Get the first 3 blogs for the home page
         setBlogs(data.blogs.slice(0, 3));
         setError(null);
       } else {
@@ -42,7 +74,7 @@ const HomePage = () => {
       setLoading(false);
     }
   };
-
+  
   useEffect(() => {
     getFeaturedBlogs();
   }, []);
