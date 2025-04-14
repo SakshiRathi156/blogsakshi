@@ -42,7 +42,7 @@ const BlogCard = ({ blog }) => {
         <div className="blog-content">
           <h5 className="blog-title">{truncateTitle(blog.title)}</h5>
           <p className="blog-description">{getShortDescription()}</p>
-          <Link to={`/blogs/${blog._id}`} className="readmore-link">
+          <Link to={`/blog/${blog._id}`} className="readmore-link">
             <button className="readmore">Read More →</button>
           </Link>
         </div>
