@@ -42,10 +42,10 @@ const BlogContent = () => {
   }, [id]);
 
   // Format the date to a more readable format
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
+  // const formatDate = (dateString) => {
+  //   const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  //   return new Date(dateString).toLocaleDateString(undefined, options);
+  // };
 
   if (loading) {
     return (
@@ -82,6 +82,10 @@ const BlogContent = () => {
           {blog.category && blog.category.trim() !== '' && (
             <span className="blog-category">{blog.category}</span>
           )}
+          {/* You can use the formatDate function here if needed */}
+          {/* {blog.createdAt && (
+            <span className="blog-date">{formatDate(blog.createdAt)}</span>
+          )} */}
         </div>
       </div>
 
