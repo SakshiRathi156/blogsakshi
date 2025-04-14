@@ -1,6 +1,6 @@
 [build]
-  base = "."
-  publish = "client/build"
+  base = "client"
+  publish = "build"
   command = "npm install && npm run build"
 
 [build.environment]
@@ -11,4 +11,4 @@
   from = "/*"
   to = "/index.html"
   status = 200
-  force=true
+  force = true
