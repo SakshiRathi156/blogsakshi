@@ -20,22 +20,18 @@ const BlogContent = () => {
         setLoading(true);
         console.log('Fetching blog details from API...');
 
-        // Use the full URL in development
         const apiUrl = process.env.NODE_ENV === 'production'
-        ? 'https://sakshirathiblogs.onrender.com/api/v1/allblogs'
-        : 'http://localhost:5000/api/v1/allblogs';
+          ? 'https://sakshirathiblogs.onrender.com/api/v1'
+          : 'http://localhost:5000/api/v1';
 
         console.log('Using API URL:', apiUrl);
-        const response = await axios.get(`${apiUrl}/api/v1/singleblog/${id}`);
+        const response = await axios.get(`${apiUrl}/singleblog/${id}`);
 
         console.log('API response:', response.data);
-        console.log('Blog category:', response.data.blog.category);
-
         setBlog(response.data.blog);
         setError(null);
       } catch (error) {
         console.error('Error fetching blog details:', error);
-        console.error('Error details:', error.response ? error.response.data : 'No response data');
         setError('Error fetching blog details. Please try again later.');
       } finally {
         setLoading(false);
